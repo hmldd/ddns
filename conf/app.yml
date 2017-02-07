@@ -1,0 +1,12 @@
+# 登录TOKEN
+login_token: 29568,54a1ef8592b293daa3c39208ed3dfd86
+# 域名
+domain: example.com
+# 子域名
+sub_domain: "@"
+# 域名解析类型
+type: "A"
+# 获取外网ip的服务地址
+ip_service: http://members.3322.org/dyndns/getip
+# 即 Time To Live，缓存的生存时间
+ttl: 180
