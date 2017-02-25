@@ -7,6 +7,7 @@ import (
 	"log"
 	"strings"
 	"time"
+	"github.com/kardianos/osext"
 )
 
 const (
@@ -27,7 +28,7 @@ func main() {
 	}
 
 	if !strings.HasPrefix(*configPath, "/") {
-		pwd, _ := os.Getwd()
+		pwd, _ := osext.ExecutableFolder()
 		*configPath = fmt.Sprintf("%s%s%s", pwd, "/", *configPath)
 	}
 
