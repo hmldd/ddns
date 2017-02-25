@@ -15,7 +15,7 @@ const (
 
 var (
 	config Settings
-	configPath = flag.String("c", "./conf/app.yml", "Specify a configuration file")
+	configPath = flag.String("c", "conf/app.yml", "Specify a configuration file")
 	showHelp = flag.Bool("h", false, "Show help")
 )
 
@@ -25,6 +25,13 @@ func main() {
 		flag.Usage()
 		return
 	}
+
+	if !strings.HasPrefix(*configPath, "/") {
+		pwd, _ := os.Getwd()
+		*configPath = fmt.Sprintf("%s%s%s", pwd, "/", *configPath)
+	}
+
+	print(*configPath)
 
 	if err := Load(*configPath, &config); err != nil {
 		fmt.Println(err.Error())
